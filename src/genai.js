@@ -5,17 +5,18 @@ class GenerativeAI {
         this.model = null;
         this.initializeModel();
         this.settings = {
-            candidate_count: 1,
             temperature: 1,
+            topK: 0,
+            topP: 0.95,
+            maxOutputTokens: 8192,
+            response_mime_type: "application/json",
           };
     }
 
     async initializeModel() {
         try {
-            console.log(process.env.API_KEY)
             const model = new GoogleGenerativeAI(process.env.API_KEY);
-            // Instanciar o modelo generative-ai
-            this.model = model.getGenerativeModel({ model: "gemini-pro", 'generationConfig': this.settings});
+            this.model = model.getGenerativeModel({ model: "gemini-1.5-pro-latest", 'generationConfig': this.settings});
             console.log('Gemini inicializado com sucesso!');
         } catch (error) {
             console.error('Erro ao inicializar o modelo:', error);
@@ -28,7 +29,6 @@ class GenerativeAI {
             return null;
         }
         try {
-            console.log(books)
             const prompt = `Pergunta: 
             Os últimos Cinco livros que li e gostei muito foram:
             - Harry Potter (J. K. Rolwling)
@@ -40,10 +40,7 @@ class GenerativeAI {
             Raciocínio:
             Os gostos literários de preferência são de Ficção Científica e Fantasia, são livros best-sellers e com quantidade de páginas alta.
             
-            Resposta: Percebi que gosta mutio de Ficção Científica e Fantasia, best-sellers e gosta de ler mutias páginas. Recomendação de próxima leitura: 
-            1 - Crônicas de Nárnia (C.S. Lewis) - Esta série clássica apresenta uma jornada mágica através de um mundo encantado, semelhante à atmosfera de Harry Potter e O Senhor dos Anéis.
-            2 - Mundo em Caos (Patrick Ness) - Uma série de ficção científica envolvente que inclui aventura, suspense e personagens cativantes, semelhante ao ritmo empolgante de "Silo".
-            3 - Fundação (Isaac Asimov) - Uma série de ficção científica clássica que aborda conceitos profundos sobre civilizações e futuro da humanidade, semelhante ao pensamento especulativo de "O Problema dos 3 Corpos".
+            Resposta em json: { "annotations" : "Percebi que gosta mutio de  <mark>Ficção Científica e Fantasia </mark>, best-sellers e gosta de ler mutias páginas. Recomendação de próxima leitura:",    "suggestions": [        { "book": "Crônicas de Nárnia (C.S. Lewis)",        "description": "Esta série clássica apresenta uma jornada mágica através de um mundo encantado, semelhante à atmosfera de Harry Potter e O Senhor dos Anéis."        },        { "book": "Mundo em Caos (Patrick Ness)",        "description": "Uma série de ficção científica envolvente que inclui aventura, suspense e personagens cativantes, semelhante ao ritmo empolgante de 'Silo'."        },        { "book": "Fundação (Isaac Asimov)",        "description": "Uma série de ficção científica clássica que aborda conceitos profundos sobre civilizações e futuro da humanidade, semelhante ao pensamento especulativo de 'O Problema dos 3 Corpos'."        }    ]}
             
             Pergunta:
             Os últimos Cinco livros que li e gostei muito foram:
@@ -52,12 +49,11 @@ class GenerativeAI {
             - ${books['book3']}
             - ${books['book4']}
             - ${books['book5']}
-            Resposta:`;
-            console.log(prompt)
+            Resposta em json:`;
             const result = await this.model.generateContent(prompt);
             const response = await result.response;
             const text = response.text();
-            return text;
+            return text
         } catch (error) {
             console.error('Erro ao gerar texto com o modelo generative-ai:', error);
             return null;

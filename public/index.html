@@ -23,40 +23,51 @@
                     <form id="askNow" action="/what-my-nex" method="POST">
                         <legend>Informe os 5 livros que você leu que você mais gostou!</legend>
                         <div class="mb-3 row">
-                            <label for="book1" class="col-sm-1 col-form-label" >Livro 1</label>
-                            <div class="col-sm-11">
+                            <label for="book1" class="col-sm-2 col-form-label" >Livro 1</label>
+                            <div class="col-sm-10">
                                 <input type="text" class="form-control" placeholder="Nome do livro (Nome do autor)" id="book1" name="book1">
                             </div>
                           </div>
                           <div class="mb-3 row">
-                            <label for="book2" class="col-sm-1 col-form-label" >Livro 2</label>
-                            <div class="col-sm-11">
+                            <label for="book2" class="col-sm-2 col-form-label" >Livro 2</label>
+                            <div class="col-sm-10">
                                 <input type="text" class="form-control" placeholder="Nome do livro (Nome do autor)" id="book2" name="book2">
                             </div>
                           </div>
                           <div class="mb-3 row">
-                            <label for="book3" class="col-sm-1 col-form-label" >Livro 3</label>
-                            <div class="col-sm-11">
+                            <label for="book3" class="col-sm-2 col-form-label" >Livro 3</label>
+                            <div class="col-sm-10">
                                 <input type="text" class="form-control" placeholder="Nome do livro (Nome do autor)" id="book3" name="book3">
                             </div>
                           </div>
                           <div class="mb-3 row">
-                            <label for="book4" class="col-sm-1 col-form-label" >Livro 4</label>
-                            <div class="col-sm-11">
+                            <label for="book4" class="col-sm-2 col-form-label" >Livro 4</label>
+                            <div class="col-sm-10">
                                 <input type="text" class="form-control" placeholder="Nome do livro (Nome do autor)" id="book4" name="book4">
                             </div>
                           </div>
                           <div class="mb-3 row">
-                            <label for="book5" class="col-sm-1 col-form-label" >Livro 5</label>
-                            <div class="col-sm-11">
+                            <label for="book5" class="col-sm-2 col-form-label" >Livro 5</label>
+                            <div class="col-sm-10">
                                 <input type="text" class="form-control" placeholder="Nome do livro (Nome do autor)" id="book5" name="book5">
                             </div>
                           </div>
-                          <button type="submit" class="btn btn-primary">Quais mihas próximas leituras?</button>
+                          <button type="submit" class="btn btn-primary" id="submitButton">Quais minhas próximas leituras?</button>
                     </form>
                 </div>
-                <div class="row">
-                    <div id="response"></div>
+                <div class="row pt-4">
+                    <div id="response" class="container-fluid">
+                        <div class="row">
+
+                            <div class="col-md-6">
+                                <div id="annotation" class="fw-medium fs-4"></div>
+                            </div>
+                            <div class="col-md-6">
+                                <div id="suggestions">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </main>
@@ -65,19 +76,40 @@
             $(document).ready(function() {
                 $('#askNow').submit(function() {
                     event.preventDefault();
+                    $('#submitButton').prop("disabled",true);
+                    $('#submitButton').text("Deixe-me ver...");
+                    $("#suggestions").html("");
+                    $("#annotation").html("");
                     const formData = $(this).serialize();
                     $.ajax({
                         type: 'POST',
                         url: '/what-my-nex',
                         data: formData,
                         success: function(response) {
-                            alert('Texto gerado: ' + response.data);
-                            console.log(response.data);
+                            var cleanedJsonString = response.data;
+                            if(response.data.startsWith("```json")){
+                                cleanedJsonString = response.data.slice(7, -5);
+                            }
+                            const data = JSON.parse(cleanedJsonString);
+                            
+                            if(data["annotations"])
+                                {
+                                    $("#annotation").html(`<p>${data["annotations"]}</p>`);
+                                    data["suggestions"].map(function(book) {
+                                        $("#suggestions").append(`<p class="fw-bold fs-4">${book["book"]}</p><p>${book["description"]}</p>`);
+                                    });
+                                } else {
+                                    $("#annotation").html($data)
+                                }
+                            
                         },
                         error: function(err) {
                             console.log(err)
                             alert('Erro: ' + err);
                         }
+                    }).always(function(){
+                        $('#submitButton').prop("disabled",false);
+                        $('#submitButton').text("Quais minhas próximas leituras?");
                     });
                 });
             });
