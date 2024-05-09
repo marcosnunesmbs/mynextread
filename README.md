@@ -2,7 +2,7 @@
 
 Quem nunca terminou de ler um livro e ficou na dúvida do que ler em seguida não é mesmoo?
 
-Enão utilize o My Nex Read para saber o que você pode ler agora que tem haver com seus gostos literários!
+Enão utilize o My Nex Read para saber o que você pode ler agora que tem a ver com seus gostos literários!
 
 <p align="center"><img src="doc/images/image_1.png" width="700px"></p>
 
