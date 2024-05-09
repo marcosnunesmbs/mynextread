@@ -4,7 +4,7 @@ Quem nunca terminou de ler um livro e ficou na dúvida do que ler em seguida nã
 
 Enão utilize o My Nex Read para saber o que você pode ler agora que tem haver com seus gostos literários!
 
-Teste a palicação acessando o endereço [34.168.162.216](http://34.168.162.216)
+
 
 ### Tecniologias utilizadas
 
@@ -12,7 +12,6 @@ Teste a palicação acessando o endereço [34.168.162.216](http://34.168.162.216
 - NodeJS
 - Bootstrap
 - HTML5
-
 
 
 ## Get Started
