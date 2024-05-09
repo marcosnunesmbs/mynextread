@@ -40,7 +40,7 @@ Apenas *git, nodejs e npm* instalado na máquina.
 
 ### Passo a passo
 
-1. Clone o porjeto na sua pasta de preferência
+1. Clone o projeto na sua pasta de preferência
     ```
     cd /home/minha-pasta/
 
@@ -58,6 +58,7 @@ Apenas *git, nodejs e npm* instalado na máquina.
     API_KEY="XPTO"
     ```		
 
+    > Se não tiver uma API_KEY do Google AI Studio crie [clicando aqui](http://bit.ly/49NYCHv)
 4. Inicie o servidor node
     ```
     npm run serve
