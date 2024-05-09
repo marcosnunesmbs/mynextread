@@ -60,7 +60,7 @@ Apenas *git, nodejs e npm* instalado na máquina.
 
 4. Inicie o servidor node
     ```
-    npm run server
+    npm run serve
     ```
 5. Acesse o projeto no seu navegador
     ```	
