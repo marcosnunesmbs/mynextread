@@ -36,10 +36,15 @@ Apenas *git, nodejs e npm* instalado na máquina.
     npm install
     ```
 
-3. Inicie o servidor node
+3. Renomeie o arquivo .env_example para .env e inclua a API_KEY
+    ```	
+    API_KEY="XPTO"
+    ```		
+
+4. Inicie o servidor node
     ```
     npm run server
     ```
-4. Acesse o projeto no seu navegador
+5. Acesse o projeto no seu navegador
     ```	
-    http://localhost:3000
+    http://localhost
