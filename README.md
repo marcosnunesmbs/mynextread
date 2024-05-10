@@ -18,13 +18,13 @@ Teste a aplicação aqui [mynextread.mnunes.xyz](https://mynextread.mnunes.xyz/)
 
 ## Estratégias
 
-Foi utilizado a estratégia de **Few-shot Chain-of-Thought Prompting** que consiste em uma combinação da técnica de Few Shot, onde se dá exemplos de entrada e de saída no pormpt, como também a técninca de Cadeia de pensamentos, ou seja, ensiar ao modelo como ele deve pensar para devolver uma resposta.
+Foi utilizada a estratégia de **Few-shot Chain-of-Thought Prompting** que consiste em uma combinação da técnica de Few Shot, emq que se fornece exemplos de entrada e de saída no pormpt, como também a técnica de Cadeia de Pensamentos, ou seja, ensiar ao modelo como ele deve pensar para devolver uma resposta.
 
 Induzi o modelo a identificar os gêneros literários mais presentes na lista e alguma outra caraterística como a quantidade de páginas. 
 
-Além disso, no modelo de resposta pedi que ele retornasse em json, para poder tratar na saída e poder facilmente manipular cada passo da resposta no front.
+Além disso, no modelo de resposta, pedi que ele retornasse em *json*, para poder tratar na saída e poder facilmente manipular cada passo da resposta no *front*.
 
-Coloquei uma tag mark para as categorias de livros na resposta esperada e ele também identificou esse indicativo.
+Coloquei uma tag *\<mark\>* para as categorias de livros indicadas na resposta esperada e ele também identificou esse detalhe.
 
 <p align="center">
     <img src="doc/images/prompt.png" width="700px">
@@ -36,7 +36,7 @@ Coloquei uma tag mark para as categorias de livros na resposta esperada e ele ta
 
 ## Faça você mesmo
 
-### Pré requisitos
+### Pré-requisitos
 
 Apenas *git, nodejs e npm* instalado na máquina.
 
