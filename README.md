@@ -18,7 +18,7 @@ Teste a aplicação aqui [mynextread.mnunes.xyz](https://mynextread.mnunes.xyz/)
 
 ## Estratégias
 
-Foi utilizada a estratégia de **Few-shot Chain-of-Thought Prompting** que consiste em uma combinação da técnica de Few Shot, emq que se fornece exemplos de entrada e de saída no pormpt, como também a técnica de Cadeia de Pensamentos, ou seja, ensiar ao modelo como ele deve pensar para devolver uma resposta.
+Foi utilizada a estratégia de **Few-shot Chain-of-Thought Prompting** que consiste em uma combinação da técnica de Few Shot, em que se fornece exemplos de entrada e de saída no pormpt, como também a técnica de Cadeia de Pensamentos, ou seja, ensiar ao modelo como ele deve pensar para devolver uma resposta.
 
 Induzi o modelo a identificar os gêneros literários mais presentes na lista e alguma outra caraterística como a quantidade de páginas. 
 
