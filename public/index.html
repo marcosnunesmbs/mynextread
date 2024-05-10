@@ -52,7 +52,7 @@
                                 <input type="text" class="form-control" placeholder="Nome do livro (Nome do autor)" id="book5" name="book5">
                             </div>
                           </div>
-                          <div class="row">
+                          <div class="p-4 row">
                             <button type="submit" class="btn btn-primary" id="submitButton">Quais minhas próximas leituras?</button>
                           </div>
                     </form>
@@ -60,7 +60,9 @@
                 <div class="row pt-4">
                     <div id="response" class="container-fluid">
                         <div class="row">
-
+                            <div class="col-md-12">
+                                <div id="error" class="text-danger"></div>
+                            </div>
                             <div class="col-md-6">
                                 <div id="annotation" class="fw-medium fs-4"></div>
                             </div>
@@ -82,6 +84,7 @@
                     $('#submitButton').text("Deixe-me ver...");
                     $("#suggestions").html("");
                     $("#annotation").html("");
+                    $("#error").html("");
                     const formData = $(this).serialize();
                     $.ajax({
                         type: 'POST',
@@ -89,20 +92,25 @@
                         data: formData,
                         success: function(response) {
                             var cleanedJsonString = response.data;
-                            if(!response.data.startsWith("{")){
-                                cleanedJsonString = response.data.slice(7, -5);
-                            }
-                            const data = JSON.parse(cleanedJsonString);
-                            
-                            if(data["annotations"])
+                            try {
+                                if(!response.data.startsWith("{")){
+                                    cleanedJsonString = response.data.slice(7, -5);
+                                }
+                                const data = JSON.parse(cleanedJsonString);
+                                
+                                if(data["annotations"])
                                 {
                                     $("#annotation").html(`<p>${data["annotations"]}</p>`);
                                     data["suggestions"].map(function(book) {
                                         $("#suggestions").append(`<p class="fw-bold fs-4">${book["book"]}</p><p>${book["description"]}</p>`);
                                     });
                                 } else {
-                                    $("#annotation").html($data)
+                                    $("#error").html($data)
                                 }
+                            } catch (e) {
+                                $("#error").html("Houve algum erro. Informe os 5 livros e tente novamente.")
+                            }
+                            
                             
                         },
                         error: function(err) {
