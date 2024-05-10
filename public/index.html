@@ -52,7 +52,9 @@
                                 <input type="text" class="form-control" placeholder="Nome do livro (Nome do autor)" id="book5" name="book5">
                             </div>
                           </div>
-                          <button type="submit" class="btn btn-primary" id="submitButton">Quais minhas próximas leituras?</button>
+                          <div class="row">
+                            <button type="submit" class="btn btn-primary" id="submitButton">Quais minhas próximas leituras?</button>
+                          </div>
                     </form>
                 </div>
                 <div class="row pt-4">
@@ -87,7 +89,7 @@
                         data: formData,
                         success: function(response) {
                             var cleanedJsonString = response.data;
-                            if(response.data.startsWith("```json")){
+                            if(!response.data.startsWith("{")){
                                 cleanedJsonString = response.data.slice(7, -5);
                             }
                             const data = JSON.parse(cleanedJsonString);
