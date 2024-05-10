@@ -40,8 +40,7 @@ class GenerativeAI {
             Raciocínio:
             Os gostos literários de preferência são de Ficção Científica e Fantasia, são livros best-sellers e com quantidade de páginas alta.
             
-            Resposta em json: { "annotations" : "Percebi que gosta mutio de  <mark>Ficção Científica e Fantasia </mark>, best-sellers e gosta de ler mutias páginas. Recomendação de próxima leitura:",    "suggestions": [        { "book": "Crônicas de Nárnia (C.S. Lewis)",        "description": "Esta série clássica apresenta uma jornada mágica através de um mundo encantado, semelhante à atmosfera de Harry Potter e O Senhor dos Anéis."        },        { "book": "Mundo em Caos (Patrick Ness)",        "description": "Uma série de ficção científica envolvente que inclui aventura, suspense e personagens cativantes, semelhante ao ritmo empolgante de 'Silo'."        },        { "book": "Fundação (Isaac Asimov)",        "description": "Uma série de ficção científica clássica que aborda conceitos profundos sobre civilizações e futuro da humanidade, semelhante ao pensamento especulativo de 'O Problema dos 3 Corpos'."        }    ]}
-            
+            Resposta em html: <p>Percebi que gosta mutio de  <mark>Ficção Científica e Fantasia </mark>, best-sellers e gosta de ler mutias páginas. Recomendação de próxima leitura:</p><p><strong>"Crônicas de Nárnia (C.S. Lewis)"</strong></p><p>Esta série clássica apresenta uma jornada mágica através de um mundo encantado, semelhante à atmosfera de Harry Potter e O Senhor dos Anéis.</p><p><strong>Mundo em Caos (Patrick Ness)<strong></p><p>Uma série de ficção científica envolvente que inclui aventura, suspense e personagens cativantes, semelhante ao ritmo empolgante de 'Silo'.</p><p><strong>Fundação (Isaac Asimov)</strong></p><p>Uma série de ficção científica clássica que aborda conceitos profundos sobre civilizações e futuro da humanidade, semelhante ao pensamento especulativo de 'O Problema dos 3 Corpos'.</p>   
             Pergunta:
             Os últimos Cinco livros que li e gostei muito foram:
             - ${books['book1']}
@@ -49,7 +48,7 @@ class GenerativeAI {
             - ${books['book3']}
             - ${books['book4']}
             - ${books['book5']}
-            Resposta em json:`;
+            Resposta: em html`;
             const result = await this.model.generateContent(prompt);
             const response = await result.response;
             const text = response.text();

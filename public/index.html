@@ -29,31 +29,31 @@
                         <div class="mb-2 row">
                             <label for="book1" class="col-sm-2 col-form-label" >Livro 1</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" placeholder="Nome do livro (Nome do autor)" id="book1" name="book1">
+                                <input type="text" class="form-control" placeholder="Nome do livro (Nome do autor)" id="book1" name="book1" required>
                             </div>
                           </div>
                           <div class="mb-2 row">
                             <label for="book2" class="col-sm-2 col-form-label" >Livro 2</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" placeholder="Nome do livro (Nome do autor)" id="book2" name="book2">
+                                <input type="text" class="form-control" placeholder="Nome do livro (Nome do autor)" id="book2" name="book2" required>
                             </div>
                           </div>
                           <div class="mb-2 row">
                             <label for="book3" class="col-sm-2 col-form-label" >Livro 3</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" placeholder="Nome do livro (Nome do autor)" id="book3" name="book3">
+                                <input type="text" class="form-control" placeholder="Nome do livro (Nome do autor)" id="book3" name="book3" required>
                             </div>
                           </div>
                           <div class="mb-2 row">
                             <label for="book4" class="col-sm-2 col-form-label" >Livro 4</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" placeholder="Nome do livro (Nome do autor)" id="book4" name="book4">
+                                <input type="text" class="form-control" placeholder="Nome do livro (Nome do autor)" id="book4" name="book4" required>
                             </div>
                           </div>
                           <div class="mb-2 row">
                             <label for="book5" class="col-sm-2 col-form-label" >Livro 5</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" placeholder="Nome do livro (Nome do autor)" id="book5" name="book5">
+                                <input type="text" class="form-control" placeholder="Nome do livro (Nome do autor)" id="book5" name="book5" required>
                             </div>
                           </div>
                           <div class="p-4 row">
@@ -66,6 +66,9 @@
                         <div class="row">
                             <div class="col-md-12 mb-3">
                                 <div id="error" class="text-danger"></div>
+                            </div>
+                            <div class="col-md-12 mb-3">
+                                <div id="resp"></div>
                             </div>
                             <div class="col-md-6">
                                 <div id="annotation" class="fw-medium fs-4"></div>
@@ -90,6 +93,7 @@
                     $("#annotation").html("");
                     $("#error").html("");
                     const formData = $(this).serialize();
+                    console.log(formData);
                     $.ajax({
                         type: 'POST',
                         url: '/what-my-nex',
@@ -97,21 +101,10 @@
                         success: function(response) {
                             var cleanedJsonString = response.data;
                             try {
-                                if(!response.data.startsWith("{")){
-                                    cleanedJsonString = response.data.slice(7, -5);
-                                }
-                                const data = JSON.parse(cleanedJsonString);
-                                
-                                if(data["annotations"])
-                                {
-                                    $("#annotation").html(`<p>${data["annotations"]}</p>`);
-                                    data["suggestions"].map(function(book) {
-                                        $("#suggestions").append(`<p class="fw-bold fs-4">${book["book"]}</p><p>${book["description"]}</p>`);
-                                    });
-                                } else {
-                                    $("#error").html($data)
-                                }
+
+                                $("#resp").html(response.data)
                             } catch (e) {
+                                console.log(e.message)
                                 $("#error").html("Houve algum erro. Informe os 5 livros e tente novamente.")
                             }
                             
