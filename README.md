@@ -4,7 +4,7 @@ Quem nunca terminou de ler um livro e ficou na dúvida do que ler em seguida nã
 
 Então utilize o My Next Read para saber o que você pode ler agora que tem a ver com seus gostos literários!
 
-Tese a aplicação aqui [http://mynextread.mnunes.xyz/](http://mynextread.mnunes.xyz/)
+Teste a aplicação aqui [http://mynextread.mnunes.xyz/](http://mynextread.mnunes.xyz/)
 
 <p align="center"><img src="doc/images/image_1.png" width="700px"></p>
 
