@@ -3,11 +3,11 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>My Next Read - O que ler agora?</title>
-        <meta name="description" content="Quem nunca terminou de ler um livro e ficou na dúvida do que ler em seguida não é mesmo? Então utilize o My Next Read para saber o que você pode ler agora que tem a ver com seus gostos literários!">
+        <title>My Next Movie - O que assistir agora?</title>
+        <meta name="description" content="Está na dúvida do que assitir agora? O My Next Movie pode te ajudar de maneira rápida e inteligente!">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="">
-        <meta property="og:title" content="My Next Read - O que ler agora?" />
+        <meta property="og:title" content="My Next Movie - O que assitir agora?" />
         <meta property="og:type" content="website" />
         <meta property="og:image" content="/resource/img/thumb.jpg" />
         <meta property="og:url" content="https://mynextread.mnunex.xyz" />
@@ -17,47 +17,47 @@
     </head>
     <body>
         <main>
-            <nav class="navbar bg-primary" data-bs-theme="dark">
+            <nav class="navbar bg-dark" data-bs-theme="dark">
                 <div class="container">
-                    <span class="navbar-brand mb-0 h1 text-white">My Next Read - O que ler agora?</span>
+                    <span class="navbar-brand mb-0 h1 text-white">My Next Movie - O que assistir agora?</span>
                 </div>
             </nav>
             <div class="container">
                 <div class="row pt-3">
                     <form id="askNow" action="/what-my-nex" method="POST">
-                        <legend>Informe os cinco Livros que você <mark>mais gostou</mark> de ler!</legend>
+                        <legend>Me diga cinco filmes que você <mark>gosta</mark> ou <mark>assistiria novamente</mark>!</legend>
                         <div class="mb-2 row">
-                            <label for="book1" class="col-sm-2 col-form-label" >Livro 1</label>
+                            <label for="book1" class="col-sm-2 col-form-label" >Filme 1</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" placeholder="Nome do livro (Nome do autor)" id="book1" name="book1" required>
+                                <input type="text" class="form-control" placeholder="Nome do Filme" id="movie1" name="movie1" required>
                             </div>
                           </div>
                           <div class="mb-2 row">
-                            <label for="book2" class="col-sm-2 col-form-label" >Livro 2</label>
+                            <label for="book2" class="col-sm-2 col-form-label" >Filme 2</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" placeholder="Nome do livro (Nome do autor)" id="book2" name="book2" required>
+                                <input type="text" class="form-control" placeholder="Nome do Filme" id="movie2" name="movie2" required>
                             </div>
                           </div>
                           <div class="mb-2 row">
-                            <label for="book3" class="col-sm-2 col-form-label" >Livro 3</label>
+                            <label for="book3" class="col-sm-2 col-form-label" >Filme 3</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" placeholder="Nome do livro (Nome do autor)" id="book3" name="book3" required>
+                                <input type="text" class="form-control" placeholder="Nome do Filme" id="movie3" name="movie3" required>
                             </div>
                           </div>
                           <div class="mb-2 row">
-                            <label for="book4" class="col-sm-2 col-form-label" >Livro 4</label>
+                            <label for="book4" class="col-sm-2 col-form-label" >Filme 4</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" placeholder="Nome do livro (Nome do autor)" id="book4" name="book4" required>
+                                <input type="text" class="form-control" placeholder="Nome do Filme" id="movie4" name="movie4" required>
                             </div>
                           </div>
                           <div class="mb-2 row">
-                            <label for="book5" class="col-sm-2 col-form-label" >Livro 5</label>
+                            <label for="book5" class="col-sm-2 col-form-label" >Filme 5</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" placeholder="Nome do livro (Nome do autor)" id="book5" name="book5" required>
+                                <input type="text" class="form-control" placeholder="Nome do Filme" id="movie5" name="movie5" required>
                             </div>
                           </div>
                           <div class="p-4 row">
-                            <button type="submit" class="btn btn-primary" id="submitButton">Quais minhas próximas leituras?</button>
+                            <button type="submit" class="btn btn-dark" id="submitButton">O que assistir agora?</button>
                           </div>
                     </form>
                 </div>
@@ -87,7 +87,7 @@
                     const formData = $(this).serialize();
                     $.ajax({
                         type: 'POST',
-                        url: '/what-my-next',
+                        url: '/what-my-next-movie',
                         data: formData,
                         success: function(response) {
                             var cleanedJsonString = response.data;
@@ -106,7 +106,7 @@
                         }
                     }).always(function(){
                         $('#submitButton').prop("disabled",false);
-                        $('#submitButton').text("Quais minhas próximas leituras?");
+                        $('#submitButton').text("O que assistir agora?");
                     });
                 });
             });

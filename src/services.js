@@ -7,5 +7,14 @@ async function sugestMeBooks(generativeAI, books) {
         return null;
     }
 }
+async function sugestMeMovies(generativeAI, movies) {
+    try {
+        const response = generativeAI.sugestMovies(movies)
+        return response;
+    } catch (error) {
+        console.error('Erro ao gerar texto com o modelo generative-ai:', error);
+        return null;
+    }
+}
 
-module.exports = { sugestMeBooks };
+module.exports = { sugestMeBooks, sugestMeMovies };
