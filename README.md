@@ -6,7 +6,7 @@ Então utilize o My Next Read para saber o que você pode ler agora que tem a ve
 
 Teste a aplicação aqui [mynextread.mnunes.xyz](https://mynextread.mnunes.xyz/)
 
-<p align="center"><img src="doc/images/image_1.png" width="700px"></p>
+<p align="center"><img src="public/resource/img/thumb.jpg" width="400px"></p>
 
 ### Principais Tecniologias/Ferramentas
 
@@ -22,7 +22,7 @@ Foi utilizada a estratégia de **Few-shot Chain-of-Thought Prompting** que con
 
 Induzi o modelo a identificar os gêneros literários mais presentes na lista e alguma outra caraterística como a quantidade de páginas. 
 
-Além disso, no modelo de resposta, pedi que ele retornasse em *json*, para poder tratar na saída e poder facilmente manipular cada passo da resposta no *front*.
+Além disso, no modelo de resposta, pedi que ele retornasse em *html*, para poder inserir já formatado *front*.
 
 Coloquei uma tag *\<mark\>* para as categorias de livros indicadas na resposta esperada e ele também identificou esse detalhe.
 
@@ -30,9 +30,10 @@ Coloquei uma tag *\<mark\>* para as categorias de livros indicadas na resposta e
     <img src="doc/images/prompt.png" width="700px">
 </p>
 
-## Resultados
-<img src="doc/images/image_3.png" width="700px">
-<img src="doc/images/image_2.png" width="700px">
+## Preview
+<p align="center"><img src="doc/images/image_1.png" width="700px"></p>
+<p align="center"><img src="doc/images/image_3.png" width="700px"></p>
+<p align="center"><img src="doc/images/image_2.png" width="700px"></p>
 
 ## Faça você mesmo
 
