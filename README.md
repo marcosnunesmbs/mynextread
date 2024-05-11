@@ -31,9 +31,23 @@ Coloquei uma tag *\<mark\>* para as categorias de livros indicadas na resposta e
 </p>
 
 ## Preview
-<p align="center"><img src="doc/images/image_1.png" width="700px"></p>
-<p align="center"><img src="doc/images/image_3.png" width="700px"></p>
-<p align="center"><img src="doc/images/image_2.png" width="700px"></p>
+### Formulário
+<p align="center">
+    <img src="doc/images/image_1.png" width="700px">
+</p>
+
+### Busca Exemplo 1
+<p align="center">
+    <span></span>
+    <img src="doc/images/image_3.png" width="700px">
+</p>
+
+### Busca Exemplo 2
+
+<p align="center">
+    <span></span>
+    <img src="doc/images/image_2.png" width="700px">
+</p>
 
 ## Faça você mesmo
 
