@@ -70,13 +70,6 @@
                             <div class="col-md-12 mb-3">
                                 <div id="resp"></div>
                             </div>
-                            <div class="col-md-6">
-                                <div id="annotation" class="fw-medium fs-4"></div>
-                            </div>
-                            <div class="col-md-6">
-                                <div id="suggestions">
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -89,12 +82,9 @@
                     event.preventDefault();
                     $('#submitButton').prop("disabled",true);
                     $('#submitButton').text("Deixe-me ver...");
-                    $("#suggestions").html("");
-                    $("#annotation").html("");
                     $("#error").html("");
                     $("#resp").html("");
                     const formData = $(this).serialize();
-                    console.log(formData);
                     $.ajax({
                         type: 'POST',
                         url: '/what-my-nex',
@@ -102,8 +92,7 @@
                         success: function(response) {
                             var cleanedJsonString = response.data;
                             try {
-
-                                $("#resp").html(response.data)
+                                $("#resp").html(response.data.replace(/```html/g, '').replace(/```/g, ''))
                             } catch (e) {
                                 console.log(e.message)
                                 $("#error").html("Houve algum erro. Informe os 5 livros e tente novamente.")
