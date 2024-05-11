@@ -49,6 +49,11 @@ Coloquei uma tag *\<mark\>* para as categorias de livros indicadas na resposta e
     <img src="doc/images/image_2.png" width="700px">
 </p>
 
+## Easter Egg
+Veja a versão do projeto para indicação de **Filmes**!
+
+[mynextread.mnunes.xyz/movie](https://mynextread.mnunes.xyz/movie)
+
 ## Faça você mesmo
 
 ### Pré-requisitos
