@@ -1,0 +1,29 @@
+name: Deploy to Google Cloud
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    types:
+      - closed
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: SSH into Google Cloud instance
+        uses: appleboy/ssh-action@master
+        env:
+          GIT_ACCESS_TOKEN: ${{ secrets.GIT_ACCESS_TOKEN }}
+        with:
+          host: 34.127.103.115
+          username: 'marco'
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          envs: GIT_ACCESS_TOKEN
+          script: |
+            sudo ./deploy.sh
