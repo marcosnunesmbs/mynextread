@@ -3,123 +3,36 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>My Next Read - O que ler agora?</title>
-        <meta name="description" content="Quem nunca terminou de ler um livro e ficou na dúvida do que ler em seguida não é mesmo? Então utilize o My Next Read para saber o que você pode ler agora que tem a ver com seus gostos literários!">
+        <title>My Next... E agora?</title>
+        <meta name="description" content="Em dúvida do que ler ou assitir agora? Experimento o My Next e descubra!">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="./resource/css/style.css">
-        <meta property="og:title" content="My Next Read - O que ler agora?" />
+        <meta property="og:title" content="My Next... E agora?" />
         <meta property="og:type" content="website" />
-        <meta property="og:image" content="/resource/img/thumb.jpg" />
-        <meta property="og:url" content="https://mynextread.mnunex.xyz" />
+        <meta property="og:image" content="./resource/img/thumb.jpg" />
+        <meta property="og:url" content="https://mnunex.xyz/read" />
         <link rel="icon" type="image/png" href="/resource/icon.png">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
     </head>
-    <body>
+    <body style="background-color: antiquewhite;">
         <main>
-            <nav class="navbar bg-primary" data-bs-theme="dark">
-                <div class="container">
-                    <span class="navbar-brand mb-0 h1 text-white">My Next Read - O que ler agora?</span>
-                </div>
-            </nav>
-            <div class="container">
-                <div class="row pt-3">
-                    <form id="askNow" action="/what-my-nex" method="POST">
-                        <legend>Informe os cinco Livros que você <mark>mais gostou</mark> de ler!</legend>
-                        <div class="mb-2 row">
-                            <label for="book1" class="col-sm-2 col-form-label" >Livro 1</label>
-                            <div class="col-sm-10">
-                                <input type="text" class="form-control" placeholder="Nome do livro (Nome do autor)" id="book1" name="book1" required>
-                            </div>
-                          </div>
-                          <div class="mb-2 row">
-                            <label for="book2" class="col-sm-2 col-form-label" >Livro 2</label>
-                            <div class="col-sm-10">
-                                <input type="text" class="form-control" placeholder="Nome do livro (Nome do autor)" id="book2" name="book2" required>
-                            </div>
-                          </div>
-                          <div class="mb-2 row">
-                            <label for="book3" class="col-sm-2 col-form-label" >Livro 3</label>
-                            <div class="col-sm-10">
-                                <input type="text" class="form-control" placeholder="Nome do livro (Nome do autor)" id="book3" name="book3" required>
-                            </div>
-                          </div>
-                          <div class="mb-2 row">
-                            <label for="book4" class="col-sm-2 col-form-label" >Livro 4</label>
-                            <div class="col-sm-10">
-                                <input type="text" class="form-control" placeholder="Nome do livro (Nome do autor)" id="book4" name="book4" required>
-                            </div>
-                          </div>
-                          <div class="mb-2 row">
-                            <label for="book5" class="col-sm-2 col-form-label" >Livro 5</label>
-                            <div class="col-sm-10">
-                                <input type="text" class="form-control" placeholder="Nome do livro (Nome do autor)" id="book5" name="book5" required>
-                            </div>
-                          </div>
-                          <div class="p-4 row">
-                            <button type="submit" class="btn btn-primary" id="submitButton">Quais minhas próximas leituras?</button>
-                          </div>
-                    </form>
-                </div>
-                <div class="row mb-3">
-                    <div id="response" class="container-fluid">
-                        <div class="row">
-                            <div class="col-md-12 mb-3">
-                                <div id="error" class="text-danger"></div>
-                            </div>
-                            <div class="col-md-12 mb-3">
-                                <div id="resp"></div>
-                            </div>
-                        </div>
+            <div class="container d-flex flex-col align-items-center justify-content-center">
+                <div class="row gap-2 justify-content-center text-center text-grey-800 my-4">
+                    <div class="col-12">
+                        <h2>My Next...</h2>
+                        <p class="px-4">Escolha um app e descubra sugestões de novas esperiências!</p>
                     </div>
+                    <a href="/read" target="" class="col col-md-6 text-center py-2 justify-content-center">
+                        <img src="./resource/img/thumb.jpg" alt="My Nex Read - O que ler agora - imagem" style="width: 35vh ; max-width: 80vw" class="shadow rounded">
+                    </a>
+                    <a href="/movie" target="" class="col col-md-6 text-center py-2 justify-content-center">
+                        <img src="./resource/img/thumb-movie.jpg" alt="My Nex Read - O que ler agora - imagem" style="width: 35vh ; max-width: 80vw" class="shadow rounded">
+                    </a>
                 </div>
             </div>
         </main>
-        
-        <footer class="bg-primary text-white py-2">
-            <div class="container d-flex flex-col justify-content-between">
-                <a href="https://mnunes.xyz"><img src="https://mnunes.xyz/assets/img/logo-white.png" alt="Logo do Portfólio" width="40"></a>
-                <a href="/movie" class="link-light">My Next Movie</a>
-            </div>
-        </footer>
-
-        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-        <script>
-            $(document).ready(function() {
-                $('#askNow').submit(function() {
-                    event.preventDefault();
-                    $('#submitButton').prop("disabled",true);
-                    $('#submitButton').text("Deixe-me ver...");
-                    $("#error").html("");
-                    $("#resp").html("");
-                    const formData = $(this).serialize();
-                    $.ajax({
-                        type: 'POST',
-                        url: '/what-my-next',
-                        data: formData,
-                        success: function(response) {
-                            var cleanedJsonString = response.data;
-                            try {
-                                $("#resp").html(response.data.replace(/```html/g, '').replace(/```/g, ''))
-                            } catch (e) {
-                                console.log(e.message)
-                                $("#error").html("Houve algum erro. Informe os 5 livros e tente novamente.")
-                            }
-                            
-                            
-                        },
-                        error: function(err) {
-                            console.log(err)
-                            alert('Erro: ' + err);
-                        }
-                    }).always(function(){
-                        $('#submitButton').prop("disabled",false);
-                        $('#submitButton').text("Quais minhas próximas leituras?");
-                    });
-                });
-            });
-        </script>
     </body>
     
 </html>
