@@ -26,9 +26,10 @@
             <div class="container">
                 <div class="row pt-3">
                     <form id="askNow" action="/what-my-nex" method="POST">
-                        <legend>Informe os cinco Livros que você <mark>mais gostou</mark> de ler!</legend>
-                        <div class="mb-2 row">
-                            <label for="book1" class="col-sm-2 col-form-label" >Livro 1</label>
+                        <div id="booksInputs">
+                            <legend>Informe os cinco Livros que você <mark>mais gostou</mark> de ler!</legend>
+                            <div class="mb-2 row">
+                                <label for="book1" class="col-sm-2 col-form-label" >Livro 1</label>
                             <div class="col-sm-10">
                                 <input type="text" class="form-control" placeholder="Nome do livro (Nome do autor)" id="book1" name="book1" required>
                             </div>
@@ -57,8 +58,10 @@
                                 <input type="text" class="form-control" placeholder="Nome do livro (Nome do autor)" id="book5" name="book5" required>
                             </div>
                           </div>
+                        </div>
                           <div class="p-4 row">
                             <button type="submit" class="btn btn-primary" id="submitButton">Quais minhas próximas leituras?</button>
+                            <button class="btn btn-primary" id="refresh" style="display: none;">Pesquisar novamente</button>
                           </div>
                     </form>
                 </div>
@@ -90,6 +93,7 @@
                 $('#askNow').submit(function() {
                     event.preventDefault();
                     $('#submitButton').prop("disabled",true);
+                    $('#booksInputs').hide();
                     $('#submitButton').text("Deixe-me ver...");
                     $("#error").html("");
                     $("#resp").html("");
@@ -107,16 +111,27 @@
                                 $("#error").html("Houve algum erro. Informe os 5 livros e tente novamente.")
                             }
                             
-                            
                         },
                         error: function(err) {
+                            $('#booksInputs').hide();
                             console.log(err)
                             alert('Erro: ' + err);
                         }
                     }).always(function(){
                         $('#submitButton').prop("disabled",false);
-                        $('#submitButton').text("Quais minhas próximas leituras?");
+                        $('#booksInputs').hide();
+                        $('#submitButton').hide();
+                        $('#refresh').show();
                     });
+                });
+                $('#refresh').click(function() {
+                    event.preventDefault();
+                    $('#booksInputs').show();
+                    $('#submitButton').text("Quais minhas próximas leituras?");
+                    $('#submitButton').show();
+                    $('#refresh').hide();
+                    $("#error").html("");
+                    $("#resp").html("");
                 });
             });
         </script>
