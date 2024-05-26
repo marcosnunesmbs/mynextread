@@ -28,4 +28,4 @@ jobs:
           envs: GIT_ACCESS_TOKEN
           script: |
             # sudo ./deploy.sh
-            sudo -u root pm2 restart mynextapp
+            sudo -u mnunes pm2 restart mynextapp
