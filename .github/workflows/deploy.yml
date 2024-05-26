@@ -27,5 +27,5 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           envs: GIT_ACCESS_TOKEN
           script: |
-            sudo ./deploy.sh
-            # sudo pm2 restart mynextapp
+            # sudo ./deploy.sh
+            sudo -u mnunes pm2 restart mynextapp
