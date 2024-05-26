@@ -26,7 +26,7 @@
             <div class="container">
                 <div class="row pt-3">
                     <form id="askNow" action="/what-my-nex" method="POST">
-                        <div id="booksInputs">
+                        <div id="moviesInputs">
                             <legend>Me diga cinco filmes que você <mark>mais gosta</mark> ou <mark>assistiria novamente</mark>!</legend>
                             <div class="mb-2 row">
                                 <label for="book1" class="col-sm-2 col-form-label" >Filme 1</label>
@@ -93,7 +93,7 @@
                 $('#askNow').submit(function() {
                     event.preventDefault();
                     $('#submitButton').prop("disabled",true);
-                    $('#booksInputs').hide();
+                    $('#moviesInputs').hide();
                     $('#submitButton').text("Deixe-me ver...");
                     $("#error").html("");
                     $("#resp").html("");
@@ -113,20 +113,20 @@
                             }
                         },
                         error: function(err) {
-                            $('#booksInputs').hide();
+                            $('#moviesInputs').hide();
                             console.log(err)
                             alert('Erro: ' + err);
                         }
                     }).always(function(){
                         $('#submitButton').prop("disabled",false);
-                        $('#booksInputs').hide();
+                        $('#moviesInputs').hide();
                         $('#submitButton').hide();
                         $('#refresh').show();
                     });
                 });
                 $('#refresh').click(function() {
                     event.preventDefault();
-                    $('#booksInputs').show();
+                    $('#moviesInputs').show();
                     $('#submitButton').text("O que assistir agora?");
                     $('#submitButton').show();
                     $('#refresh').hide();
