@@ -16,7 +16,7 @@ class GenerativeAI {
     async initializeModel() {
         try {
             const model = new GoogleGenerativeAI(process.env.API_KEY);
-            this.model = model.getGenerativeModel({ model: "gemini-1.5-pro-latest", 'generationConfig': this.settings});
+            this.model = model.getGenerativeModel({ model: "gemini-2.0-flash", 'generationConfig': this.settings});
             console.log('Gemini inicializado com sucesso!');
         } catch (error) {
             console.error('Erro ao inicializar o modelo:', error);
